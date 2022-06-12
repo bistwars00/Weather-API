@@ -5,6 +5,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ClipLoader from "react-spinners/ClipLoader";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 const App = () => {
   const cities = ["Paris", "Seoul", "Tokyo", "Hanoi"];
   const [curweather, setCurWeather] = useState(null);
@@ -12,12 +14,12 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const curPosition = async () => {
-    let url = `http://api.positionstack.com/v1/forward?access_key=06e3874cde391a9b3908867102f26865&query=Seoul`;
+    let url = `http://api.positionstack.com/v1/forward?access_key=${API_KEY}&query=Seoul`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
-    let lat = data.data[0].latitude;
-    let lon = data.data[0].longitude;
+    let lat = data && data.data[0] ? data.data[0].latitude : "";
+    let lon = data && data.data[0] ? data.data[0].longitude : "";
 
     curData(lat, lon);
     console.log("lat@@", lat);
