@@ -14,7 +14,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const curPosition = async () => {
-    let url = `http://api.positionstack.com/v1/forward?access_key=${API_KEY}&query=Seoul`;
+    let url = `https://api.positionstack.com/v1/forward?access_key=${API_KEY}&query=Seoul`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
