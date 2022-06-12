@@ -9,12 +9,13 @@ const Wbox = ({ curweather }) => {
       ? (curweather.main.temp * 1.8 + 32).toFixed(2)
       : "";
   return (
-    <div className="box">
-      <h3>{curweather?.name}</h3>
+    <div className="box boxBG">
+      <h2>Weather Now</h2>
+      <h3>Space: {curweather?.name}</h3>
       <h3>
-        {tem1}(℃) / {tem2} (℉){" "}
+        Temp: {tem1}(℃) / {tem2} (℉){" "}
       </h3>
-      <h3>{curweather && curweather.weather[0]?.description}</h3>
+      <h3>Desc: {curweather && curweather.weather[0]?.description}</h3>
     </div>
   );
 };

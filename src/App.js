@@ -11,12 +11,17 @@ const App = () => {
   const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const curPosition = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-      curData(lat, lon);
-    });
+  const curPosition = async () => {
+    let url = `http://api.positionstack.com/v1/forward?access_key=06e3874cde391a9b3908867102f26865&query=Seoul`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+    let lat = data.data[0].latitude;
+    let lon = data.data[0].longitude;
+
+    curData(lat, lon);
+    console.log("lat@@", lat);
+    console.log("lon@@", lon);
   };
 
   const curData = async (lat, lon) => {
