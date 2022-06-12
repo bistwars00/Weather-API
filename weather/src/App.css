@@ -1,0 +1,28 @@
+.box {
+  background-color: rgb(158, 207, 183);
+  padding: 50px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://cdn.wallpapersafari.com/62/74/a2jd0u.jpg");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.menu-container Button {
+  margin-right: 2px;
+}
+
+.menu-container Button:hover {
+  background-color: #d366c4;
+}
